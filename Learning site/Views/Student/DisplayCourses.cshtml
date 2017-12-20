@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Learning_site.Models.Course>
+
+@{
+    ViewBag.Title = "DisplayCourses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DisplayCourses</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.code)
+        </th>
+        <th>
+          <label>Instructor Name</label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.instructor.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Enroll", "EnrollInCourse", new { id=item.Id })
+      
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,49 @@
+﻿@model Learning_site.Models.Course
+
+@{
+    ViewBag.Title = "CourseDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CourseDetail</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.instructor.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.instructor.Name)
+        </dd>
+
+
+        <dd>
+            <td>@Html.ActionLink(Model.name, "EnrollInCourse", "Student", new { id = Model.Id }, null)</td>
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Learning_site.Models.EnrolledCourse>
+
+@{
+    ViewBag.Title = "DisplayDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ALL student Courses</h2>
+
+
+
+
+<table class="table">
+    <tr>
+        <th>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.course.name)
+            </td>
+            
+            <td>
+               
+                <a href="#">@Html.ActionLink("Show Assignmets", "Index", "Assignment", new { id = item.Id}, null)
+</a>
+            </td>
+            
+            <td>
+             
+            </td>
+
+
+
+
+        </tr>
+    }
+
+</table>
+
+
+
+
+
+
+
+
